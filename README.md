@@ -4,10 +4,12 @@
 ![Power Bi](https://img.shields.io/badge/power_bi-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
 
 ![Dashboard Preview](dashboard_preview.png)
-*(Vista previa del Dashboard Operativo en Power BI)*
+*(Vista previa del Dashboard)*
 
 ## 📌 Resumen del Proyecto
-Este proyecto analiza la eficiencia operativa de una plataforma de Ride Hailing (tipo Uber/Cabify) en la región NCR. El objetivo principal fue diagnosticar las causas de la pérdida de ingresos (*Revenue Leakage*) y optimizar la asignación de la flota.
+Este proyecto analiza la eficiencia operativa de una plataforma de Ride Hailing (tipo Uber/Cabify) en la región NCR. 
+
+El objetivo principal fue diagnosticar las causas de la pérdida de ingresos (*Revenue Leakage*) y optimizar la asignación de la flota.
 
 **Pregunta de Negocio:** ¿Cómo reducir la tasa de cancelación y minimizar la pérdida de ingresos por falta de conductores ("No Driver Found")?
 
@@ -17,19 +19,20 @@ Este proyecto analiza la eficiencia operativa de una plataforma de Ride Hailing 
 
 Este proyecto implementa una arquitectura ágil de **Modern Data Stack**, centrada en Python para el procesamiento de datos y Power BI para la inteligencia de negocios.
 
-### 1. Python (Pandas & Seaborn) - ETL & EDA
+### 1. Python (Ingeniería de Datos & ETL)
+* **Librerías:** Pandas, Matplotlib.
 * **Data Cleaning (ETL):** Se desarrolló un script robusto (`etl_analysis.py`) para sanear un dataset crudo con problemas de formato graves (comillas triples, tipos de datos inconsistentes y valores nulos).
 * **Feature Engineering:**
     * **Revenue Estimation:** Se creó un algoritmo para imputar el valor monetario perdido en viajes cancelados, basado en el ticket promedio histórico de la flota.
     * **Time Segmentation:** Transformación de timestamps en franjas horarias de negocio (Morning, Afternoon, Night) para detectar patrones de demanda insatisfecha.
 * **Automated Visualization:** Generación automática de gráficos estáticos (`.png`) para reportes rápidos de Tasa de Éxito.
 
-### 2. Power BI - Executive Dashboard
-* **App-Like Design:** Diseño de navegación estilo aplicación con 4 páginas interconectadas (*Overview, Fleet, Location, Revenue*).
+### 2. Power BI (Business Intelligence)
+* **Conexión:** Carga de archivos procesados en Python.
 * **Advanced DAX Measures:**
     * Cálculo de *Success Rate %* (Tasa de Éxito).
     * Cálculo de *Revenue Leakage* (Dinero perdido por ineficiencia).
-* **Storytelling:**
+* **Visualización de KPIs:**
     * **Demand Funnel:** Visualización del embudo de conversión para detectar dónde caen las reservas.
     * **Geospatial Analysis:** Mapas de calor para identificar "zonas rojas" de alta cancelación.
 
@@ -47,8 +50,7 @@ Este proyecto implementa una arquitectura ágil de **Modern Data Stack**, centra
 
 ```text
 Ride_Hailing_Analysis/
-├── data/                  # Dataset original (Raw) y Dataset limpio (Processed)
-├── python/                # Script ETL y análisis exploratorio (Pandas)
-├── powerbi/               # Archivo .pbix (Dashboard Interactivo)
-├── dashboard_preview.png  # Captura del reporte final
+├── data/                  # Datasets originales (CSV) y Dataset limpio (Processed)
+├── python/                # Notebook de Análisis (EDA) y Limpieza (ETL) & Gráficos
+├── powerbi/               # Dashboard (.pbix)
 └── README.md              # Documentación del proyecto
